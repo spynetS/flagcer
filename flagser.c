@@ -106,6 +106,12 @@ int parse(int argc, char** argv){
     //run last arg
     if(flagsFound > 0)
         flags[lastarg].oncall(argsindex, args);
+    
+    for(int i = 0; i < argc; i++){
+        free(args[i]);
+    }
+    free(args);
+
     //maybe free every string inside args?
     return flagsFound;
 }
